@@ -1,9 +1,9 @@
 def bubbleSort(array):
   for i in range(len(array)):
-    swapped = False
-    for j in range(0, len(array) - i - 1):
-      if array[j] > array[j + 1]:
-        temp = array[j]
+    swapped = False #---> Memory counter
+    for j in range(0, len(array) - i - 1): #---->[1,5,4,2,8]
+      if array[j] >  array[j + 1]:
+        temp = array[j]   #---> jar1 jar2  jar3(tempjar) 
         array[j] = array[j+1]
         array[j+1] = temp
         swapped = True
