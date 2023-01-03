@@ -6,18 +6,28 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
-        # Head [1|address of 2]--> [2|none] tail
 
+        # Head [1|address of 2]--> [2|none] tail
+   
 linked_list = LinkedList() # Head ->None
-linked_list.head = Node(1)  # linked_list.head =[1|None]
-second = Node(2)  # second =[2|None]
-third = Node(3)  # third =[3|None]
-# linked_list.head =[1|next=None] 
+linked_list.head = Node(4)  # linked_list.head =[1|None]
+second = Node(6)  # second =[2|None]
+third = Node(7)  # third =[3|None]
+fourth= Node(8)
+fifth= Node(9)
+sixth=Node(10)
+seventh=Node(1)
+eigth=Node(2)
+ninth=Node(3)
 linked_list.head.next = second   # linked_list.head =[1|[2|None]]
 second.next = third  #second [2|[3|None]]
-
-#1|second  --> 2|third ---> 3| none
+third.next=fourth
+fourth.next=fifth
+fifth.next=sixth
+sixth.next=seventh
+seventh.next=eigth
+eigth.next=ninth # [3 | None]
 
 while linked_list.head != None:
-    print(linked_list.head.item, end=" ")
-    linked_list.head = linked_list.head.next
+        print(linked_list.head.item ,linked_list.head.next, end=" ")
+        linked_list.head = linked_list.head.next
