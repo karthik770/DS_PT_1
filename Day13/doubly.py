@@ -40,22 +40,22 @@ class DoublyLinkedList:
             print(temp.data, sep=",")
             temp = temp.next
 
-    def delete(self, value):
-        if self.isEmpty():
+    def delete(self, value): #100
+        if self.isEmpty(): #true
             print("Linked List is empty. Cannot delete elements.")
-        elif self.head.next is None:
-            if self.head.data == value:
-                self.head = None
-        else:
-            temp = self.head
-            while temp is not None:
-                if temp.data == value:
+        elif self.head.next is None: #[None|100|None] 
+            if self.head.data == value: #100 ==100
+                self.head = None #--> deletion
+        else: #[None|1|add of 5], [add of 1|5|add of 10],[add of 5|10|add of 25],25,100
+            temp = self.head #[None|1|add of 5]
+            while temp is not None: #[add of 25|100|None]
+                if temp.data == value: #100==100 true
                     break
                 temp = temp.next
             if temp is None:
                 print("Element not present in linked list. Cannot delete element.")
             elif temp.next is None:
-                self.deleteFromLast()
+                 temp=None
             else:
                 temp.next = temp.previous.next
                 temp.next.previous = temp.previous
@@ -70,3 +70,5 @@ x.insertAtEnd(25)
 x.insertAtEnd(100)
 x.insertAtBeginning(1)
 x.printLinkedList()
+x.delete(100)
+#1, 5,10,25,100
