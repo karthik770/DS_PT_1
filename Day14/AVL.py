@@ -148,7 +148,7 @@ nums = [100,50,150,25,75,65,85,125,175,190,180,200]
 for num in nums:
     root = myTree.insert_node(root, num)
 myTree.printHelper(root, "", True)
-key = 13
+key = 200
 root = myTree.delete_node(root, key)
 print("After Deletion: ")
 myTree.printHelper(root, "", True)
