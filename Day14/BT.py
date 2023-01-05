@@ -1,4 +1,3 @@
-
 class Node:
     def __init__(self, data): # 12
       self.left = None 
