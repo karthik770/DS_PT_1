@@ -1,12 +1,10 @@
 class Node:
-    def __init__(self, item):
+    def __init__(self, item): #12
         self.left = None
         self.right = None
-        self.val = item
+        self.val = item #[None |12| None]
 
-
-def inorder(root):
-
+def inorder(root): 
     if root:
         inorder(root.left)
         print(str(root.val) + "->", end='')
@@ -22,24 +20,24 @@ def postorder(root):
 
 
 def preorder(root):
-
+                  #  [left | root| right]
     if root:
         print(str(root.val) + "->", end='')
         preorder(root.left)
         preorder(root.right)
 
 
-root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
+root = Node(12)
+root.left = Node(6)
+root.right = Node(19)
+root.left.left = Node(2)
+root.left.right = Node(7)
 
 print("Inorder traversal ")
-inorder(root)
+inorder(root) #[2,6,7,12,19]
 
 print("\nPreorder traversal ")
-preorder(root)
+preorder(root) # [12,6,2,7,19] 
 
 print("\nPostorder traversal ")
-postorder(root)
+postorder(root) #[2,7,6,19,12]
