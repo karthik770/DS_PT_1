@@ -26,7 +26,6 @@ def preorder(root):
         preorder(root.left)
         preorder(root.right)
 
-
 root = Node(12)
 root.left = Node(6)
 root.right = Node(19)
