@@ -1,5 +1,3 @@
-
-
 import sys
 
 class TreeNode(object):
@@ -38,37 +36,35 @@ class AVLTree(object):
 
         return root
 
-    def delete_node(self, root, key):
+    def delete_node(self, root, key): # entire avl tree , 200 # 150,200 #175,200#180,200#190,200
 
-        if not root:
+        if not root: 
             return root
-        elif key < root.key:
+        elif key  < root.key:
             root.left = self.delete_node(root.left, key)
-        elif key > root.key:
-            root.right = self.delete_node(root.right, key)
-        else:
-            if root.left is None:
-                temp = root.right
+        elif key > root.key: # 200>150 # 200>175 # 200>180 #200>190
+            root.right = self.delete_node(root.right, key)  # 175, 200  #180, 200 #190,200 #200,200
+        else: # equal 200=200 
+            if root.left is None: #true
+                temp = root.right  #temp=200
                 root = None
                 return temp
             elif root.right is None:
                 temp = root.left
                 root = None
                 return temp
-            temp = self.getMinValueNode(root.right)
+            temp = self.getMinValueNode(root.right) #190
             root.key = temp.key
             root.right = self.delete_node(root.right,
-                                          temp.key)
+                                          temp.key) # 200,190
         if root is None:
             return root
 
-        # Update the balance factor of nodes
+    
         root.height = 1 + max(self.getHeight(root.left),
                               self.getHeight(root.right))
 
-        balanceFactor = self.getBalance(root)
-
-        # Balance the tree
+        balanceFactor = self.getBalance(root) # -1
         if balanceFactor > 1:
             if self.getBalance(root.left) >= 0:
                 return self.rightRotate(root)
@@ -81,7 +77,8 @@ class AVLTree(object):
             else:
                 root.right = self.rightRotate(root.right)
                 return self.leftRotate(root)
-        return root
+        return root 
+        
 
     def leftRotate(self, z):
         y = z.right
@@ -148,7 +145,22 @@ nums = [100,50,150,25,75,65,85,125,175,190,180,200]
 for num in nums:
     root = myTree.insert_node(root, num)
 myTree.printHelper(root, "", True)
-key = 200
+	        
+	# 		 100
+	# 		/     \
+	#      50      150  
+	#   /    \       /  \
+	#  25    75   125  175 
+    #       /  \        \ 
+	# 	 65    85        180 
+	# 					 \
+	# 					190  BF=0-1=-1
+	# 					    \
+	# 					    200 
+
+
+
+key = 75
 root = myTree.delete_node(root, key)
 print("After Deletion: ")
 myTree.printHelper(root, "", True)
